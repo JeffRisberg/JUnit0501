@@ -3,15 +3,14 @@ package com.company;
 import com.company.models.Item;
 import com.company.services.ItemService;
 import com.company.stores.ItemStore;
-import org.junit.jupiter.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
+//import static org.hamcrest.CoreMatchers.is;
+//import static org.junit.Assert.assertEquals;
+//import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.*;
 
 public class ItemServiceTest {
@@ -20,7 +19,7 @@ public class ItemServiceTest {
 
   private ItemService itemService;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     itemStore = mock(ItemStore.class);
 
