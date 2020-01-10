@@ -3,22 +3,18 @@ package com.company;
 import com.company.models.Item;
 import com.company.services.ItemService;
 import com.company.stores.ItemStore;
-//import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.ArrayList;
 import java.util.List;
 
-//import static org.hamcrest.CoreMatchers.is;
-//import static org.junit.Assert.assertEquals;
-//import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
-@RunWith(MockitoJUnitRunner.class)
+//@RunWith(MockitoJUnitRunner.class)
 public class ItemServiceTestWithAnnotations {
 
   @Mock
@@ -27,7 +23,7 @@ public class ItemServiceTestWithAnnotations {
   @InjectMocks
   private ItemService itemService;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
     Item mockedItem1 = new Item(1L, "Item 1", "Item 1 Desc", 2000);
     Item mockedItem2 = new Item(2L, "Item 2", "Item 2 Desc", 4000);
@@ -51,7 +47,7 @@ public class ItemServiceTestWithAnnotations {
     // Verify
     //
     verify(itemStore, times(1)).findById(1L);
-    assertThat(result.getName(), is("Item 1"));
+    assertEquals(result.getName(), "Item 1");
   }
 
   @Test
@@ -65,7 +61,9 @@ public class ItemServiceTestWithAnnotations {
     // Verify
     //
     verify(itemStore, times(1)).findById(1L);
-    assertThat(result, is("ITEM 1"));
+    assertEquals(result, 1);
+
+    //assertThat(result, is("ITEM 1"));
   }
 
   @Test

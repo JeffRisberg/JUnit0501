@@ -8,9 +8,8 @@ import org.junit.jupiter.api.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//import static org.hamcrest.CoreMatchers.is;
-//import static org.junit.Assert.assertEquals;
-//import static org.junit.Assert.assertThat;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 public class ItemServiceTest {
@@ -51,7 +50,7 @@ public class ItemServiceTest {
     // Verify
     //
     verify(itemStore, times(1)).findById(1L);
-    assertThat(result.getName(), is("Item 1"));
+    assertEquals(result.getName(), "Item 1");
   }
 
   @Test
@@ -65,7 +64,7 @@ public class ItemServiceTest {
     // Assert
     //
     verify(itemStore, times(1)).findById(1L);
-    assertThat(result, is("ITEM 1"));
+    assertEquals(result, "ITEM 1");
   }
 
   @Test
